@@ -1,6 +1,3 @@
-require "Park_Trails/version"
-
-module ParkTrails
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./Park_Trails/version"
+require_relative "./Park_Trails/CLI"
+require_relative "./Park_Trails/Scraper"
