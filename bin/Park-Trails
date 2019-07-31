@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 require './lib/Park_Trails.rb'
 
-CLI.new
+CLI.new.run
+ 
