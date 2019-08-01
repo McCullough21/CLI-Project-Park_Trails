@@ -17,17 +17,18 @@ def county_trails
   puts "trail 4"
   puts "Please type the number of the trail you would like to know more about, or type exit."
   input = gets.strip
-  while input != "exit"
-  trail_description(input)
+  if input == "exit"
+     goodbye
+
+  else trail_description(input)
+  end
 end
-end
+
 
 def trail_description(input)
 
-   if input == "exit"
-     goodbye
 
-  elsif input == '1'
+    if input == '1'
        puts "trail 1"
        puts "To go back to the list of PBC trails type list, or type exit"
     elsif input == '2'
@@ -36,15 +37,24 @@ def trail_description(input)
     elsif input == '3'
        puts "trail 3"
        puts "To go back to the list of PBC trails type list, or type exit"
-  elsif input == '4'
+    elsif input == '4'
        puts "trail 4"
        puts "To go back to the list of PBC trails type list, or type exit"
-    elsif input == 'list'
-      county_trails
+    # elsif input == 'list'
+    #   county_trails
      else
        puts "I did not recognize that command."
-       puts "Please type the number of the trail you would like to know more about, or type exit."
+       county_trails
     end
+    input = gets.strip
+     if input == "list"
+       county_trails
+     elsif input == "exit"
+        goodbye
+     else
+     puts "I did not recognize that command."
+     puts "To go back to the list of PBC trails type list, or type exit"
+  end
 end
 
 
