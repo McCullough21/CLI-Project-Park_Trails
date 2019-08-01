@@ -1,5 +1,7 @@
 class CLI
 
+# attr_writer :
+
 def initialize
   puts "Hello! I see you are interested in nature trails in Palm Beach County!"
 end
@@ -46,14 +48,14 @@ def trail_description(input)
        puts "I did not recognize that command."
        county_trails
     end
-    input = gets.strip
-     if input == "list"
+    new_input = gets.strip
+     if new_input == "list"
        county_trails
-     elsif input == "exit"
+     elsif new_input == "exit"
         goodbye
      else
      puts "I did not recognize that command."
-     puts "To go back to the list of PBC trails type list, or type exit"
+     trail_description(input)
   end
 end
 
