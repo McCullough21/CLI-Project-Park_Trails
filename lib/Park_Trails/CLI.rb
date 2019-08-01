@@ -5,8 +5,8 @@ def initialize
 end
 
 def run
-  trail_description
-  goodbye
+  county_trails
+
 end
 
 def county_trails
@@ -15,37 +15,38 @@ def county_trails
   puts "trail 2"
   puts "trail 3"
   puts "trail 4"
-end
-
-def trail_description
-  county_trails
-
-  input = nil
-  while input != "exit"
-
   puts "Please type the number of the trail you would like to know more about, or type exit."
   input = gets.strip
-  case input
-    when '1'
+  while input != "exit"
+  trail_description(input)
+end
+end
+
+def trail_description(input)
+
+   if input == "exit"
+     goodbye
+
+  elsif input == '1'
        puts "trail 1"
        puts "To go back to the list of PBC trails type list, or type exit"
-    when  '2'
+    elsif input == '2'
        puts "trail 2"
        puts "To go back to the list of PBC trails type list, or type exit"
-    when  '3'
+    elsif input == '3'
        puts "trail 3"
        puts "To go back to the list of PBC trails type list, or type exit"
-    when  '4'
+  elsif input == '4'
        puts "trail 4"
        puts "To go back to the list of PBC trails type list, or type exit"
-    when 'list'
-      trail_description
+    elsif input == 'list'
+      county_trails
      else
        puts "I did not recognize that command."
        puts "Please type the number of the trail you would like to know more about, or type exit."
     end
 end
-end
+
 
 
 def goodbye
