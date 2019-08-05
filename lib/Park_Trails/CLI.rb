@@ -7,6 +7,7 @@ end
 
 def run
   county_trails
+  Scraper.trail_names
 
 end
 

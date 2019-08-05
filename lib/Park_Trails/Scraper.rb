@@ -10,18 +10,15 @@ class Scraper
 def self.trail_names
 
 page = Nokogiri::HTML(open("http://discover.pbcgov.org/parks/Pages/NatureTrails.aspx"))
-trailss = []
-trails = page.css("div.col-sm-8 h2 span").each do |trail|
-if trail.text != ""
-trailss << trail.text
-end
-end
-trailss.each do |name|
-  trail = []
-  count = 1
-   trail(count) << name
-   count += 1
-   @@all << trail(count)
+trails = page.css("div.ms-webpart-zone.ms-fullWidth div.s4-wpcell-plain.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth")
+  # puts trails.count
+  trails.each do |trail|
+   name = trail.css("h2 span").text if trail.css("h2 span").text != ""
+   info = trail.css("p")
+   info.each do |gems|
+    address = gems.text if gems.text.include?("Entrance")
+    hours =
+    puts address
    binding.pry
  end
 
