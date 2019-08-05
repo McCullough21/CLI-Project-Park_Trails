@@ -21,8 +21,9 @@ trails = page.css("div.ms-webpart-zone.ms-fullWidth div.s4-wpcell-plain.ms-webpa
     puts address
    binding.pry
  end
+end
 
-
+# at the end of this method above, instantiate a new TRAIL in Trails class
 
 
 end
