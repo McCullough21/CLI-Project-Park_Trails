@@ -4,25 +4,34 @@ require 'pry'
 
 class Scraper
 
+
 @@all = []
 
-def self.scrape
-trail = []
+def self.trail_names
 
-doc = Nokogiri::HTML(open("http://discover.pbcgov.org/parks/Pages/NatureTrails.aspx"))
-trail << doc.css("div.col-sm-8.h2.span").text
-binding.pry
-end
-
-page = Nokogiri::HTML(open(site))
+page = Nokogiri::HTML(open("http://discover.pbcgov.org/parks/Pages/NatureTrails.aspx"))
 trailss = []
 trails = page.css("div.col-sm-8 h2 span").each do |trail|
 if trail.text != ""
 trailss << trail.text
 end
+count = 1
+trail(count) = []
+ trailss.each do |name|
+   trail(count) << name
+   count += 1
+   @@all << trail(count)
+ end
 
+ end
+
+
+end
+
+def self.trail_info
 address = page.css("div.col-sm-7")[0].css("p").each do |info|
 puts info.text
+end
 end
 # will scrape webpage for data and create hash of trail hashes
 
