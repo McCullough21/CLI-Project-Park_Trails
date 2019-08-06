@@ -9,19 +9,31 @@ class Scraper
 
 def self.trail_names
 
-page = Nokogiri::HTML(open("http://discover.pbcgov.org/parks/Pages/NatureTrails.aspx"))
-trails = page.css("div.ms-webpart-zone.ms-fullWidth div.s4-wpcell-plain.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth")
-  # puts trails.count
+  page = Nokogiri::HTML(open("http://discover.pbcgov.org/parks/Pages/NatureTrails.aspx"))
+  trailss = []
+  trails = page.css("div.ms-webpart-zone.ms-fullWidth div.s4-wpcell-plain.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth")
+
   trails.each do |trail|
    name = trail.css("h2 span").text if trail.css("h2 span").text != ""
    info = trail.css("p")
-   info.each do |gems|
-    address = gems.text if gems.text.include?("Entrance")
-    hours =
-    puts address
-   binding.pry
- end
-end
+    info.each do |gems|
+     address = gems.text if gems.text.include?("Entrance")
+      if gems.text.include?("Sunrise")
+      hours = gems.text.strip!
+       if hours.include?("here")
+       29.times do
+       hours.chop!
+       end
+      end
+        if hours.include?("sunsetC")
+        hours.chop!
+        end
+      end
+    end
+    description = info[-1].text if info[-1].text != "​R​eturn to Nature​"
+    puts description
+    Trails.new(name, address, hours, description)
+   end
 
 # at the end of this method above, instantiate a new TRAIL in Trails class
 
