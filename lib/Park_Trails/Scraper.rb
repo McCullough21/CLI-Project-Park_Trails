@@ -15,29 +15,30 @@ def self.trail_names
   trailss = []
   trails = page.css("div.ms-webpart-zone.ms-fullWidth div.s4-wpcell-plain.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth")
   trails.each do |trail|
-   if trail.css("h2 span").text != "" && trail.css("h2 span").text != nil
+if trail.css("h2 span").text != "" && trail.css("h2 span").text != nil
      @name = trail.css("h2 span").text
    info = trail.css("p")
-    info.each do |gems|
-     @address = gems.text.strip! if gems.text.include?("Entrance")
-     binding.pry
-      if gems.text.include?("Sunrise")
-      @hours = gems.text.strip!
-      end
-        if @hours.include?("here")
-        29.times do
-        @hours.chop!
-        end
-         if @hours.include?("sunsetC")
-         @hours.chop!
-         end
-      @description = info[-1].text.strip! if info[-1].text != "​R​eturn to Nature​"
+      info.each do |gems|
+        if gems.text.include?("Entrance") && gems.text != nil
+          @address = gems.text.strip!
+        elsif gems.text.include?("Sunrise")
+           @hours = gems.text.strip!
+          if @hours.include?("here")
+          29.times do
+          @hours.chop!
+          end
+          if @hours.include?("sunsetC")
+          @hours.chop!
+          end
+        elsif info[-1].text != "​R​eturn to Nature​"
+       @description = info[-1].text.strip!
       Trails.new(@name, @address, @hours, @description)
-
-    end
-  end
- end
+     end
+   end
 end
+end
+end
+binding.pry
 end
 
 end
