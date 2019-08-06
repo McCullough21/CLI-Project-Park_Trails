@@ -12,7 +12,6 @@ attr_accessor :name, :address, :hours, :description
 def self.trails
 
   page = Nokogiri::HTML(open("http://discover.pbcgov.org/parks/Pages/NatureTrails.aspx"))
-  trailss = []
   trails = page.css("div.ms-webpart-zone.ms-fullWidth div.s4-wpcell-plain.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth")
   trails.each do |trail|
     if trail.css("h2 span").text != "" && trail.css("h2 span").text != nil
