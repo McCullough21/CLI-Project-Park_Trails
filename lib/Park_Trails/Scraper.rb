@@ -32,8 +32,9 @@ if trail.css("h2 span").text != "" && trail.css("h2 span").text != nil
           end
         elsif info[-1].text != "​R​eturn to Nature​"
        @description = info[-1].text.strip!
-      Trails.new(@name, @address, @hours, @description)
+
      end
+     Trails.new(@name, @address, @hours, @description)
    end
 end
 end
