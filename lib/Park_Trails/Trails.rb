@@ -1,3 +1,4 @@
+require './lib/Park_Trails.rb'
 class Trails
 
 @@all = []
@@ -12,7 +13,9 @@ attr_reader :name, :address, :hours, :description
      @@all << self
   end
 
-
+def self.all
+  @@all
+end
 
 
 

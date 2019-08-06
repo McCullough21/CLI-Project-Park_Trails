@@ -1,4 +1,6 @@
+require './lib/Park_Trails.rb'
 class CLI
+require 'pry'
 
 
 def initialize
@@ -8,6 +10,8 @@ end
 def run
   county_trails
   Scraper.trail_names
+  Trails.all
+  # binding.pry
 
 end
 
