@@ -15,10 +15,12 @@ def self.trail_names
   trailss = []
   trails = page.css("div.ms-webpart-zone.ms-fullWidth div.s4-wpcell-plain.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth")
   trails.each do |trail|
-   @name = trail.css("h2 span").text if trail.css("h2 span").text != ""
+   if trail.css("h2 span").text != "" && trail.css("h2 span").text != nil
+     @name = trail.css("h2 span").text
    info = trail.css("p")
     info.each do |gems|
-     @address = gems.text if gems.text.include?("Entrance")
+     @address = gems.text.strip! if gems.text.include?("Entrance")
+     binding.pry
       if gems.text.include?("Sunrise")
       @hours = gems.text.strip!
       end
@@ -31,8 +33,9 @@ def self.trail_names
          end
       @description = info[-1].text.strip! if info[-1].text != "​R​eturn to Nature​"
       Trails.new(@name, @address, @hours, @description)
-      binding.pry
+
     end
+  end
  end
 end
 end
