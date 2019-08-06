@@ -21,21 +21,20 @@ def self.trail_names
      @address = gems.text if gems.text.include?("Entrance")
       if gems.text.include?("Sunrise")
       @hours = gems.text.strip!
-       if @hours.include?("here")
-       29.times do
-       @hours.chop!
-       end
-
-     end
-        if @hours.include?("sunsetC")
+      end
+        if @hours.include?("here")
+        29.times do
         @hours.chop!
         end
-     @description = info[-1].text.strip! if info[-1].text != "​R​eturn to Nature​"
+         if @hours.include?("sunsetC")
+         @hours.chop!
+         end
+      @description = info[-1].text.strip! if info[-1].text != "​R​eturn to Nature​"
+      Trails.new(@name, @address, @hours, @description)
+      binding.pry
+    end
+ end
+end
+end
 
-      end
-    Trails.new(@name, @address, @hours, @description)
-    
-  end
-end
-end
 end
