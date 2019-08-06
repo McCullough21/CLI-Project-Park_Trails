@@ -23,10 +23,16 @@ if trail.css("h2 span").text != "" && trail.css("h2 span").text != nil
           @address = gems.text.strip!
         elsif gems.text.include?("Sunrise")
            @hours = gems.text.strip!
-             29.times do @hours.chop! if @hours.include?("here") end
-             @hours.chop! if @hours.include?("sunsetC")
+             if @hours.include?("here")
+               29.times do
+                 @hours.chop!
+               end
+             end
+             if @hours.include?("sunsetC")
+               @hours.chop!
+             end
 
-        elsif info[-1].text != "​R​eturn to Nature​"
+        info[-1].text != "​R​eturn to Nature​"
        @description = info[-1].text.strip!
        Trails.new(@name, @address, @hours, @description)
         end
