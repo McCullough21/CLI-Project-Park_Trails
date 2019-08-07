@@ -16,19 +16,22 @@ end
 
 def county_trails
   puts "Here is the list of PBC trails:"
-  Trail.all.each do |trail|
+  Trail.all.each.with_index(1) do |trail, i|
+    puts "#{i}."
     puts trail.name
     puts trail.address
-  puts Trail.all[0].name
-  puts Trail.all[0].address
-  puts Trail.all[1].name
-  puts Trail.all[1].address
-  puts Trail.all[2].name
-  puts Trail.all[2].address
-  puts Trail.all[3].name
-  puts Trail.all[3].address
-  puts Trail.all[4].name
-  puts Trail.all[4].address
+  end
+  # puts Trail.all[0].name
+  # puts Trail.all[0].address
+  # puts Trail.all[1].name
+  # puts Trail.all[1].address
+  # puts Trail.all[2].name
+  # puts Trail.all[2].address
+  # puts Trail.all[3].name
+  # puts Trail.all[3].address
+  # puts Trail.all[4].name
+  # puts Trail.all[4].address
+  puts ""
   puts "Please type the number of the trail you would like to know more about, or type exit."
   input = gets.strip
   if input == "exit"
