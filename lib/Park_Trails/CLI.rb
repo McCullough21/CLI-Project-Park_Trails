@@ -8,7 +8,7 @@ def initialize
 end
 
 def run
-  Scraper.trail_names
+  Scraper.trails
   county_trails
   # binding.pry
 
@@ -16,10 +16,19 @@ end
 
 def county_trails
   puts "Here is the list of PBC trails:"
-  puts "trail 1"
-  puts "trail 2"
-  puts "trail 3"
-  puts "trail 4"
+  Trail.all.each do |trail|
+    puts trail.name
+    puts trail.address
+  puts Trail.all[0].name
+  puts Trail.all[0].address
+  puts Trail.all[1].name
+  puts Trail.all[1].address
+  puts Trail.all[2].name
+  puts Trail.all[2].address
+  puts Trail.all[3].name
+  puts Trail.all[3].address
+  puts Trail.all[4].name
+  puts Trail.all[4].address
   puts "Please type the number of the trail you would like to know more about, or type exit."
   input = gets.strip
   if input == "exit"
