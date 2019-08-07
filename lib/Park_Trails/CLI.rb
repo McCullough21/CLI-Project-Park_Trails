@@ -43,22 +43,33 @@ end
 
 
 def trail_description(input)
+  if valid(input)
 
+    index = input.to_i - 1
+    puts Trail.all[index].name
+    puts ""
+    puts Trail.all[index].address
+    puts ""
+    puts Trail.all[index].hours
+    puts ""
+    puts Trail.all[index].description
+    puts ""
+    puts "To go back to the list of PBC trails type list, or type exit"
 
-    if input == '1'
-       puts "trail 1"
-       puts "To go back to the list of PBC trails type list, or type exit"
-    elsif input == '2'
-       puts "trail 2"
-       puts "To go back to the list of PBC trails type list, or type exit"
-    elsif input == '3'
-       puts "trail 3"
-       puts "To go back to the list of PBC trails type list, or type exit"
-    elsif input == '4'
-       puts "trail 4"
-       puts "To go back to the list of PBC trails type list, or type exit"
-    # elsif input == 'list'
-    #   county_trails
+    # if index == '1'
+    #    puts "trail 1"
+    #    puts "To go back to the list of PBC trails type list, or type exit"
+    # elsif input == '2'
+    #    puts "trail 2"
+    #    puts "To go back to the list of PBC trails type list, or type exit"
+    # elsif input == '3'
+    #    puts "trail 3"
+    #    puts "To go back to the list of PBC trails type list, or type exit"
+    # elsif input == '4'
+    #    puts "trail 4"
+    #    puts "To go back to the list of PBC trails type list, or type exit"
+    # # elsif input == 'list'
+    # #   county_trails
      else
        puts "I did not recognize that command."
        county_trails
@@ -74,7 +85,10 @@ def trail_description(input)
   end
 end
 
-
+def valid(input)
+  index = input.to_i
+  index > 0 && index < 6
+end
 
 def goodbye
   puts "Goodbye!"
