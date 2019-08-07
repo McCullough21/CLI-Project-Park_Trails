@@ -33,13 +33,12 @@ def self.trails
 
           info[-1].text != "​R​eturn to Nature​"
           @description = info[-1].text.strip!
-          Trails.new(@name, @address, @hours, @description)
+          Trail.new(@name, @address, @hours, @description)
         end
       end
     end
 
   end
-binding.pry
 end
 
 end

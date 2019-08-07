@@ -1,5 +1,5 @@
 require './lib/Park_Trails.rb'
-class Trails
+class Trail
 
 @@all = []
 

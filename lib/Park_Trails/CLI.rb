@@ -10,8 +10,6 @@ end
 def run
   Scraper.trail_names
   county_trails
-  # Scraper.trail_names
-  Trails.all
   # binding.pry
 
 end
