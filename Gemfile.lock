@@ -2,19 +2,33 @@ PATH
   remote: .
   specs:
     Park_Trails (0.1.0)
+      nokogiri
+      open-uri
 
 GEM
   remote: https://rubygems.org/
   specs:
-    rake (10.5.0)
+    date (3.3.3)
+    nokogiri (1.15.3-x86_64-linux)
+      racc (~> 1.4)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
+    racc (1.7.1)
+    rake (13.0.6)
+    stringio (3.0.7)
+    time (0.2.2)
+      date
+    uri (0.12.2)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   Park_Trails!
   bundler (~> 2.0)
-  rake (~> 10.0)
+  rake (~> 13.0)
 
 BUNDLED WITH
    2.0.1
